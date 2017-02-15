@@ -75,6 +75,9 @@ var ProductListComponent = (function () {
     ProductListComponent.prototype.ngOnInit = function () {
         console.log('Inside OnInit');
     };
+    ProductListComponent.prototype.onRatingClicked = function (message) {
+        this.pageTitle = "Product Title " + message;
+    };
     ProductListComponent = __decorate([
         core_1.Component({
             moduleId: 'productModuleId',

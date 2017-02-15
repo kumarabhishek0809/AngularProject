@@ -45,7 +45,8 @@
                         <td>{{product.description}}</td>
                         <td>{{product.price}}</td>
                         <td>
-                            <ai-star [rating]='product.starRating'> </ai-star>
+                            <!-- child will be on LHS and Parent is on RHS -->
+                            <ai-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'> </ai-star>
                         </td>
                     </tr>
                 </tbody>
