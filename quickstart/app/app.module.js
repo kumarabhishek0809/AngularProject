@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var star_component_1 = require('./shared/star.component');
 var login_page_component_1 = require('./loginForm/login-page.component');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
@@ -15,6 +16,7 @@ var product_list_component_1 = require('./products/product-list.component');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+var product_filter_1 = require('./products/product-filter');
 /*Doubts
 /1. why is BrowserModule, ReactiveFormsModule, HttpModule
 * Used For.
@@ -27,7 +29,11 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, forms_1.FormsModule],
             providers: [],
-            declarations: [app_component_1.AppComponent, product_list_component_1.ProductListComponent, login_page_component_1.LoginPageForm],
+            declarations: [app_component_1.AppComponent,
+                product_list_component_1.ProductListComponent,
+                login_page_component_1.LoginPageForm,
+                product_filter_1.ProductFilterPipe,
+                star_component_1.StarComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
