@@ -1,3 +1,4 @@
+import { ProductService } from './products/product-services';
 import { StarComponent } from './shared/star.component';
 import { LoginPageForm } from './loginForm/login-page.component';
 import { HttpModule } from '@angular/http';
@@ -7,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ProductFilterPipe } from './products/product-filter';
+import { ApplicationLoggerService } from './logger/logger.service';
 
 
 /*Doubts 
@@ -16,7 +18,8 @@ import { ProductFilterPipe } from './products/product-filter';
 */
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, HttpModule, FormsModule],
-  providers: [],
+  providers: [ProductService,
+    ApplicationLoggerService],
   declarations: [AppComponent,
     ProductListComponent,
     LoginPageForm,
