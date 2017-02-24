@@ -1,23 +1,29 @@
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
 
 @Component({
-    selector: 'login-form',
-    templateUrl: 'app/loginForm/login-page.html',
-    styleUrls: []
+    selector: 'templatedrivenform-form',
+    templateUrl: 'app/loginForm/templatedrivenform-page.html',
+    styles: [`input.ng-invalid{border-left:5px solid red;} 
+    input.ng-valid{border-left:5px solid green;}`]
 
 })
-export class LoginPageForm {
+export class TemplateDrivenForm {
+    myName: String = 'Kumar Abhishek';
     loginPageForm: FormGroup;
     constructor(private formBuilder: FormBuilder) {
         this.buildForm();
     }
 
 
+
+    onSubmit(value: any) {
+        console.log(value);
+    }
+
     ngOnInit() {
-        let genderControl = this.loginPageForm.get('gender') as FormControl;
-        genderControl.setValue('male', { emitEvent: true });
+        console.log('InsideNgOnInit');
     }
 
     onResetForm() {

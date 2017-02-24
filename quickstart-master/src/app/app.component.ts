@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,8 +7,8 @@ import { Component } from '@angular/core';
   <div>
     <h1>{{pageTitle}}</h1>
     <pm-products></pm-products>
-
-  </div>
+    <templatedrivenform-form></templatedrivenform-form>
+   </div>
   `
 })
 
