@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   <div>
     <h1>{{pageTitle}}</h1>
     <pm-products></pm-products>
+    <modeldrivenform-form></modeldrivenform-form>
     <templatedrivenform-form></templatedrivenform-form>
    </div>
   `

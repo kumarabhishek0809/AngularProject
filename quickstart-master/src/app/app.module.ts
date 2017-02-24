@@ -9,6 +9,7 @@ import { TemplateDrivenForm } from './forms/templatedriven/templateDrivenform-pa
 import { ProductListComponent } from './products/product-list.component';
 import { ProductFilterPipe } from './products/product-filter';
 import { ApplicationLoggerService } from './logger/logger.service';
+import { ModelDrivenForm } from './forms/modeldriven/modeldrivenform-page.component';
 
 
 
@@ -18,7 +19,7 @@ import { ApplicationLoggerService } from './logger/logger.service';
     ApplicationLoggerService],
   declarations: [AppComponent,
     ProductListComponent,
-    TemplateDrivenForm,
+    TemplateDrivenForm, ModelDrivenForm,
     ProductFilterPipe,
     StarComponent],
   bootstrap: [AppComponent]
