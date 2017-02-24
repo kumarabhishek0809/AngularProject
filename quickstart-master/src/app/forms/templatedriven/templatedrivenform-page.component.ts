@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'templatedrivenform-form',
-    templateUrl: 'app/loginForm/templatedrivenform-page.html',
+    templateUrl: 'app/forms/templatedriven/templatedrivenform-page.html',
     styles: [`input.ng-invalid{border-left:5px solid red;} 
     input.ng-valid{border-left:5px solid green;}`]
 

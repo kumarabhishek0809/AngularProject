@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './products/product-services';
 import { StarComponent } from './shared/star.component';
-import { TemplateDrivenForm } from './loginForm/templateDrivenform-page.component';
+import { TemplateDrivenForm } from './forms/templatedriven/templateDrivenform-page.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ProductFilterPipe } from './products/product-filter';
 import { ApplicationLoggerService } from './logger/logger.service';
