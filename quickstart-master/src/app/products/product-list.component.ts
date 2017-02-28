@@ -1,6 +1,5 @@
 import { ProductService } from './product-services';
 import { ApplicationLoggerService } from '../logger/logger.service';
-
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
@@ -19,6 +18,7 @@ export class ProductListComponent implements OnInit {
     private showImage: boolean = false;
     private listFilter: string = '';
     private products: IProduct[];
+    private errorMessage: String;
     constructor(private _productService: ProductService,
         private _applicationLogger: ApplicationLoggerService) {
 
@@ -29,7 +29,10 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit() {
         this._applicationLogger.log('Inside OnInit');
-        this.products = this._productService.getProducts();
+        this._productService.getProducts()
+            .subscribe(responseProducts => this.products = responseProducts,
+            responseError => this.errorMessage = responseError
+            );
     }
 
     onRatingClicked(message: string): void {
