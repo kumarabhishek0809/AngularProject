@@ -7,21 +7,38 @@ import { ProductService } from './products/product-services';
 import { StarComponent } from './shared/star.component';
 import { TemplateDrivenForm } from './forms/templatedriven/templateDrivenform-page.component';
 import { ProductListComponent } from './products/product-list.component';
+import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductFilterPipe } from './products/product-filter';
 import { ApplicationLoggerService } from './logger/logger.service';
 import { ModelDrivenForm } from './forms/modeldriven/modeldrivenform-page.component';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from './home/welcome.component';
+
 
 
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule, HttpModule, FormsModule],
+  imports: [BrowserModule,
+    ReactiveFormsModule,
+    HttpModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'templateDrivenForm', component: TemplateDrivenForm }
+      , { path: 'modeldrivenform', component: ModelDrivenForm }
+      , { path: 'products', component: ProductListComponent }
+      , { path: 'product/:id', component: ProductDetailComponent }
+      , { path: 'welcome', component: WelcomeComponent }
+      , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }])],
   providers: [ProductService,
     ApplicationLoggerService],
   declarations: [AppComponent,
-    ProductListComponent,
-    TemplateDrivenForm, ModelDrivenForm,
+    TemplateDrivenForm,
+    ModelDrivenForm,
     ProductFilterPipe,
-    StarComponent],
+    StarComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    WelcomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
