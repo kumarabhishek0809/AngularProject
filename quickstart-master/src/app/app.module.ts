@@ -13,6 +13,8 @@ import { ApplicationLoggerService } from './logger/logger.service';
 import { ModelDrivenForm } from './forms/modeldriven/modeldrivenform-page.component';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailGuard } from './products/product-guard.service';
+
 
 
 
@@ -26,11 +28,14 @@ import { WelcomeComponent } from './home/welcome.component';
       { path: 'templateDrivenForm', component: TemplateDrivenForm }
       , { path: 'modeldrivenform', component: ModelDrivenForm }
       , { path: 'products', component: ProductListComponent }
-      , { path: 'product/:id', component: ProductDetailComponent }
+      , {
+        path: 'product/:id', component: ProductDetailComponent,
+        canActivate: [ProductDetailGuard]
+      }
       , { path: 'welcome', component: WelcomeComponent }
       , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }])],
   providers: [ProductService,
-    ApplicationLoggerService],
+    ApplicationLoggerService, ProductDetailGuard],
   declarations: [AppComponent,
     TemplateDrivenForm,
     ModelDrivenForm,
