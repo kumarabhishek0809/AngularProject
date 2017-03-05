@@ -5,18 +5,10 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './products/product-services';
 import { StarComponent } from './shared/star.component';
-import { TemplateDrivenForm } from './forms/templatedriven/templateDrivenform-page.component';
-import { ProductListComponent } from './products/product-list.component';
-import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductFilterPipe } from './products/product-filter';
 import { ApplicationLoggerService } from './logger/logger.service';
-import { ModelDrivenForm } from './forms/modeldriven/modeldrivenform-page.component';
-import { RouterModule } from '@angular/router';
-import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailGuard } from './products/product-guard.service';
-
-
-
+import { AppRoutingModule, routingComponents } from './app.routing.module';
 
 
 @NgModule({
@@ -24,26 +16,10 @@ import { ProductDetailGuard } from './products/product-guard.service';
     ReactiveFormsModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: 'templateDrivenForm', component: TemplateDrivenForm }
-      , { path: 'modeldrivenform', component: ModelDrivenForm }
-      , { path: 'products', component: ProductListComponent }
-      , {
-        path: 'product/:id', component: ProductDetailComponent,
-        canActivate: [ProductDetailGuard]
-      }
-      , { path: 'welcome', component: WelcomeComponent }
-      , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }])],
+    AppRoutingModule],
   providers: [ProductService,
     ApplicationLoggerService, ProductDetailGuard],
-  declarations: [AppComponent,
-    TemplateDrivenForm,
-    ModelDrivenForm,
-    ProductFilterPipe,
-    StarComponent,
-    ProductListComponent,
-    ProductDetailComponent,
-    WelcomeComponent],
+  declarations: [AppComponent, ProductFilterPipe, StarComponent, routingComponents],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
