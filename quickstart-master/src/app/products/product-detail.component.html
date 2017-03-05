@@ -3,8 +3,14 @@
         {{pageTitle}}
     </div>
     <div class="panel-footer">
-        <a class="btn btn-default" (click)='onBack()' style="width:80px;">
-            <i class="glphyicon glphyicon--chevron-left"></i> Back
+        <a class="btn btn-default pull-left" (click)='onBack()'>
+            <i class="glphyicon glphyicon--chevron-left"></i> Go to Product List
+        </a>
+        <a class="btn btn-default pull-right" (click)='goPrevious()'>
+            <i class="glphyicon glphyicon--arrow-left"></i> Previous
+        </a>
+        <a class="btn btn-default pull-right" (click)='goNext()'>
+            <i class="glphyicon glphyicon--arror-right"></i> Next
         </a>
     </div>
 </div>

@@ -1,6 +1,7 @@
+
 import { IProduct } from './product';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 
 @Component({
@@ -9,19 +10,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
     pageTitle: String = 'Product Detail';
     product: IProduct;
+    private id: number = 0;
+
+    /*    ngOnInit(): void {
+            this.id = +this._route.snapshot.params['id'];
+            this.pageTitle += `  --> ${this.id}`;
+        }*/
 
     ngOnInit(): void {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-
-        let id = +this._route.snapshot.params['id'];
-        this.pageTitle += `  --> ${id}`;
-
-
+        this._route.params.subscribe((params: Params) => {
+            let id = +params['id'];
+            this.pageTitle = `  --> ${this.id}`;
+            this.id = id;
+        });
     }
-
     onBack(): void {
         this._router.navigate(['/products']);
+    }
+
+    goPrevious(): void {
+        this.id = this.id - 1;
+        this._router.navigate(['/product', this.id]);
+    }
+
+    goNext(): void {
+        this.id += 1;
+        this._router.navigate(['/product', this.id]);
     }
 
     constructor(private _route: ActivatedRoute, private _router: Router) {
