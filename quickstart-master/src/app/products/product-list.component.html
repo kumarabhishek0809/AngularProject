@@ -43,7 +43,7 @@
                             <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin' />
                         </td>
                         <td>
-                            <a [routerLink]="['/product',product.productId]">{{product.productName}}</a>
+                            <a (click)='onProductSelect(product)'>{{product.productName}}</a>
                         </td>
                         <td>{{product.productCode}}</td>
                         <td>{{product.releaseDate}}</td>

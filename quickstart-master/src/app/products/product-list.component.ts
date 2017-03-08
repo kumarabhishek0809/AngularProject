@@ -2,6 +2,7 @@ import { ProductService } from './product-services';
 import { ApplicationLoggerService } from '../logger/logger.service';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,8 +20,10 @@ export class ProductListComponent implements OnInit {
     private listFilter: string = '';
     private products: IProduct[];
     private errorMessage: String;
+    private selectedId: String;
     constructor(private _productService: ProductService,
-        private _applicationLogger: ApplicationLoggerService) {
+        private _applicationLogger: ApplicationLoggerService,
+        private _route: ActivatedRoute, private _router: Router) {
 
     }
     toggleImage() {
@@ -33,6 +36,15 @@ export class ProductListComponent implements OnInit {
             .subscribe(responseProducts => this.products = responseProducts,
             responseError => this.errorMessage = responseError
             );
+        // this._route.params.subscribe((params: Params) => {
+        //     let id = params['id'];
+        //     this.selectedId = id;
+        // });
+    }
+
+    onProductSelect(product: IProduct): void {
+        this._applicationLogger.log('Inside OnProductSelect -->' + product.productId);
+        this._router.navigate([product.productId], { relativeTo: this._route });
     }
 
     onRatingClicked(message: string): void {

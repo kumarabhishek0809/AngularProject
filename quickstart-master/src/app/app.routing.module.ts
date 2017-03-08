@@ -1,4 +1,4 @@
-
+import { AnimationComponent } from './animation/animation.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateDrivenForm } from './forms/templatedriven/templateDrivenform-page.component';
@@ -14,11 +14,13 @@ const routes: Routes =
         , { path: 'modeldrivenform', component: ModelDrivenForm }
         , { path: 'products', component: ProductListComponent }
         , {
-            path: 'product/:id', component: ProductDetailComponent,
+            path: 'products/:id', component: ProductDetailComponent,
             canActivate: [ProductDetailGuard]
-        }
+        }, { path: 'animation', component: AnimationComponent }
         , { path: 'welcome', component: WelcomeComponent }
-        , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }];
+        , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+        // '**' this had to be at the last
+    ];
 
 
 @NgModule({
@@ -30,4 +32,4 @@ export class AppRoutingModule {
 }
 
 export const routingComponents: any = [TemplateDrivenForm, ModelDrivenForm,
-    ProductListComponent, ProductDetailComponent, WelcomeComponent];
+    ProductListComponent, ProductDetailComponent, WelcomeComponent, AnimationComponent];
